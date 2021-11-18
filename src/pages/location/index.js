@@ -18,7 +18,7 @@ const LocationsRoute = ({ locations }) => {
   return (
     <>
       <Head>
-        <title>Localização - Rick and Morty</title>
+        <title>Location - Rick and Morty</title>
         <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
       </Head>
       <NavBar />

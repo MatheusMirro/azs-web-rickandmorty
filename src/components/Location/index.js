@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import { IoMdArrowBack } from 'react-icons/io';
 
-import { Wrapper, StyledTitle, Card, Text, CharactersWrapper, Character } from './styles';
+import { Wrapper, StyledTitle, GoBackButton, Card, Text, CharactersWrapper, Character } from './styles';
 
 const Location = ({ location }) => {
   const { id, name, type, dimension, residents } = location;
@@ -14,9 +15,16 @@ const Location = ({ location }) => {
     ));
   };
 
+  const goBack = () => {
+    window.history.back();
+  };
+
   return (
     <Wrapper>
       <Card>
+        <GoBackButton>
+          <IoMdArrowBack onClick={goBack} />
+        </GoBackButton>
         <StyledTitle>{name}</StyledTitle>
         <Text>
           <b>ID:</b> {id}

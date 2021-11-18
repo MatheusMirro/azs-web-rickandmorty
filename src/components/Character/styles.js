@@ -72,3 +72,8 @@ export const Image = styled.img`
   width: ${rem('150px')};
   margin: ${rem('8px')};
 `;
+
+export const GoBackButton = styled.div`
+  font-size: 45px;
+  cursor: pointer;
+`;

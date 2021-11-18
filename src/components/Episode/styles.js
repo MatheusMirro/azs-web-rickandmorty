@@ -64,3 +64,8 @@ export const Character = styled.span`
     margin: ${rem('8px')};
   }
 `;
+
+export const GoBackButton = styled.div`
+  font-size: 45px;
+  cursor: pointer;
+`;

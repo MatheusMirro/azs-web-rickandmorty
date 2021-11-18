@@ -17,7 +17,7 @@ export async function getServerSideProps() {
 const EpisodesRoute = ({ episodes }) => (
   <>
     <Head>
-      <title>Episodios - Rick and Morty</title>
+      <title>Episode - Rick and Morty</title>
       <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
     </Head>
     <NavBar />

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Hamburguer } from './styles';
 import { FaBars } from 'react-icons/fa';
 import { AiOutlineClose } from 'react-icons/ai';
-import NavBar from '../index';
+import NavLinks from '../NavLinks';
 
 function MobileNavigaton() {
   const [open, setOpen] = useState(false);
@@ -12,8 +12,10 @@ function MobileNavigaton() {
 
   return (
     <div>
-      <Hamburguer>{open ? closeIcon : hamburguerIcon}</Hamburguer>
-      <NavBar />
+      <Hamburguer>
+        {open ? closeIcon : hamburguerIcon}
+        {open && <NavLinks />}
+      </Hamburguer>
     </div>
   );
 }

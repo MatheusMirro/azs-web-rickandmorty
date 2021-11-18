@@ -1,10 +1,15 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import { IoMdArrowBack } from 'react-icons/io';
 
-import { Wrapper, StyledTitle, Card, Text, CharactersWrapper, Character } from './styles';
+import { Wrapper, GoBackButton, StyledTitle, Card, Text, CharactersWrapper, Character } from './styles';
 
 const Episode = ({ episode }) => {
   const { id, name, air_date, episode: episodeCode, characters } = episode;
+
+  const goBack = () => {
+    window.history.back();
+  };
 
   const renderCharacters = () => {
     return characters.map((character, key) => (
@@ -17,7 +22,9 @@ const Episode = ({ episode }) => {
   return (
     <Wrapper>
       <Card>
-        <div>HEART</div>
+        <GoBackButton>
+          <IoMdArrowBack onClick={goBack} />
+        </GoBackButton>
         <StyledTitle>
           {episodeCode} - {name}
         </StyledTitle>

@@ -8,7 +8,7 @@ import Loader from '../shared/Loader';
 import { GET_EPISODES } from '../../queries';
 import { EpisodesIcon } from '../shared/Icons';
 
-import { Wrapper, IconWrapper } from './styles';
+import { Wrapper, IconWrapper, InputWrapper } from './styles';
 import Episode from './Episode';
 
 const Episodes = ({ episodes }) => {
@@ -38,15 +38,12 @@ const Episodes = ({ episodes }) => {
   const renderEpisodes = () => {
     return allEpisodes
       .filter(val => {
-        if (search === '') {
-          return val;
-        } else if (val.name.toLowerCase().includes(search.toLowerCase())) {
+        if (val.name.toLowerCase().includes(search.toLowerCase())) {
           return val;
         }
       })
       .map((episode, key) => <Episode key={key} episode={episode} />);
   };
-  console.log(episodes);
 
   const loadMoreData = () => {
     getEpisodes({ variables: { page: nextLink } });
@@ -54,27 +51,37 @@ const Episodes = ({ episodes }) => {
 
   return (
     <Wrapper>
-      <Title>Episodios</Title>
+      <Title>Episodes</Title>
       <IconWrapper>
         <EpisodesIcon />
       </IconWrapper>
       <input
+        style={{
+          background: 'transparent',
+          padding: '2px',
+          borderRadius: '5px',
+          height: '7%',
+          border: '1px solid',
+          color: 'red',
+        }}
         type="text"
         placeholder="search..."
         onChange={e => {
           setSearch(e.target.value);
         }}
       />
-      <InfiniteScroll
-        dataLength={allEpisodes?.length}
-        next={loadMoreData}
-        hasMore={nextLink}
-        height="50vh"
-        style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}
-        loader={<Loader />}
-      >
-        {renderEpisodes()}
-      </InfiniteScroll>
+      <div id="scrollableDiv" style={{ height: '100%', overflowY: 'scroll', width: '100%' }}>
+        <InfiniteScroll
+          dataLength={allEpisodes?.length}
+          next={loadMoreData}
+          hasMore={nextLink}
+          height="50vh"
+          style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}
+          loader={<Loader />}
+        >
+          {renderEpisodes()}
+        </InfiniteScroll>
+      </div>
     </Wrapper>
   );
 };

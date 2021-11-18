@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import { IoMdArrowBack } from 'react-icons/io';
 
-import { Wrapper, Image, StyledTitle, StyledLink, Card, Text, EpisodesWrapper, Episode } from './styles';
+import { Wrapper, GoBackButton, Image, StyledTitle, StyledLink, Card, Text, EpisodesWrapper, Episode } from './styles';
 
 const Character = ({ character }) => {
   const { id, name, type, image, status, gender, origin, species, episode, location } = character;
@@ -18,6 +19,10 @@ const Character = ({ character }) => {
     return null;
   };
 
+  const goBack = () => {
+    window.history.back();
+  };
+
   const renderEpisodes = () => {
     return episode.map((ep, key) => (
       <Link href={`/episode/${ep.id}`} key={key}>
@@ -29,6 +34,9 @@ const Character = ({ character }) => {
   return (
     <Wrapper>
       <Card>
+        <GoBackButton>
+          <IoMdArrowBack onClick={goBack} />
+        </GoBackButton>
         <StyledTitle>{name}</StyledTitle>
         <Image src={image} alt="character" />
         <Text>

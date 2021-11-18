@@ -7,8 +7,8 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 25%;
   height: 15%;
+  width: 25%;
   margin: ${rem('50px')};
   padding: ${rem('8px')};
   border: 1px solid white;

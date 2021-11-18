@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useLazyQuery } from '@apollo/react-hooks';
 import InfiniteScroll from 'react-infinite-scroll-component';
@@ -43,7 +43,7 @@ const Characters = ({ characters }) => {
 
   return (
     <Wrapper>
-      <Title>Personagens</Title>
+      <Title>Characters</Title>
       <IconWrapper>
         <CharactersIcon />
       </IconWrapper>
